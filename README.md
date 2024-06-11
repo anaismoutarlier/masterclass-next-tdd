@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Nextjs Unit and E2E Testing
 
-## Getting Started
+This is a basic Nextjs application bootstrapped with [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme). It shows how to configure Jest to work with Next for unit testing and how to set up Cypress for end-to-end testing.
 
-First, run the development server:
+### Unit testing with Jest
+
+To run unit tests, execute the following command from the terminal:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn test:unit
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+_SETTING UP JEST IN A NEW PROJECT_
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Install Jest.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn add -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom @testing-library/dom
+# or
+npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom @testing-library/dom
+```
 
-## Learn More
+2. Copy the `jest.config.mjs` and `jest.setup.js` files from this project into the new project.
 
-To learn more about Next.js, take a look at the following resources:
+3. Create your test files.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Note:** Test files can be co-located alongside production files (example: `src/components/Button/Button.test.js`) or in a dedicated `__tests__` folder (example: `src/__tests__`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### E2E Testing with Cypress
 
-## Deploy on Vercel
+To run E2E tests, execute the following command from the terminal:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+yarn test:e2e
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_SETTING UP CYPRESS IN A NEW PROJECT_
+
+1. Install cypress.
+
+```bash
+yarn add cypress
+# or
+npm install cypress
+```
+
+2. Open two terminal windows.
+
+3. In one window, launch the project:
+
+```bash
+yarn dev
+```
+
+4. In the second window, launch the tests:
+
+```bash
+yarn test:e2e
+```
+
+5. In the Cypress DevTools window, select E2E Testing.
+
+6. In the Cypress DevTools window, select a browser to use for testing.
+
+7. In the automated test window, select _New spec_ or create a new file in the `cypress/e2e` folder.
+
+8. Write tests.
+
+9. Run tests from automated test DevTools window.
