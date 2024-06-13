@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.main form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main h1 {
+  margin-bottom: 15px;
+}
+
+.main form input,
+.main form button {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  min-width: 300px;
+}
